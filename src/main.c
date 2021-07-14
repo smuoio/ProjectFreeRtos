@@ -123,6 +123,7 @@ int main(void)
   ConfigInit();
   MX_GPIO_Init();
   MX_TIM2_Init();
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
   //MX_DMA_Init();
   MX_USART2_UART_Init();
   __HAL_UART_ENABLE_IT(&huart2, UART_IT_RXNE);
@@ -365,7 +366,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
+  /*Configure GPIO pin Output Level*/
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
